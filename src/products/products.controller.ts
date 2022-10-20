@@ -5,11 +5,6 @@ import { ProductService } from "./products.service";
 
 @Controller('products')
 export class ProductsController {
-  products: Product[] = [
-    // new Product('LV123', 'Livro de Nest JS', 23.99),
-    // new Product('LV124', 'Livro de Express', 19.99),
-    // new Product('LV125', 'Fundamentos da Programação de Computadores', 60.99),
-  ];
 
   constructor(private readonly productService: ProductService){
 
