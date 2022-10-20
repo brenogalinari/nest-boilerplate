@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProductsController } from './products.controller';
-import { ProductService } from './products.service';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Product } from './products.model';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -19,9 +17,9 @@ import { Product } from './products.model';
 	  autoLoadModels: true,
 	  synchronize: true
     }),
-	SequelizeModule.forFeature([Product])
+	ProductsModule
   ],
-  controllers: [AppController, ProductsController],
-  providers: [AppService, ProductService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
