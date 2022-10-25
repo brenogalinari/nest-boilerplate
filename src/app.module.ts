@@ -7,23 +7,25 @@ import { AuthModule } from './auth/auth.module';
 import { Auth } from './auth';
 import { UsersModule } from './users/users.module';
 import { Users } from './users';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
+	ConfigModule.forRoot(),
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'nest_learning',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       models: [],
 	  autoLoadModels: true,
 	  synchronize: true
     }),
 	ProductsModule,
 	AuthModule,
-	UsersModule
+	UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService, Auth, Users],
