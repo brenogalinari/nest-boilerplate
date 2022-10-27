@@ -21,7 +21,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       database: process.env.DB_DATABASE,
       models: [],
 	  autoLoadModels: true,
-	  synchronize: true
+	  synchronize: false
     }),
 	ProductsModule,
 	AuthModule,
