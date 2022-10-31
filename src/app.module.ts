@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { ProductsModule } from './products/products.module';
 import { AuthModule } from './auth/auth.module';
 import { Auth } from './auth';
 import { UsersModule } from './users/users.module';
@@ -23,7 +22,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 	  autoLoadModels: true,
 	  synchronize: false
     }),
-	ProductsModule,
 	AuthModule,
 	UsersModule,
   ],
